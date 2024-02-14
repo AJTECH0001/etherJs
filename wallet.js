@@ -1,6 +1,8 @@
 import "dotenv/config";
 import { ethers } from "ethers";
 
+// import { BigNumber } from "ethers"
+
 // const wallet = ethers.Wallet.createRandom();
 
 // console.log("address" , wallet.address);
@@ -23,7 +25,7 @@ import { ethers } from "ethers";
 // getting address of a privateKey
 
 const sepoliainfuraUrl = `https://sepolia.infura.io/v3/${process.env.INFURA_KEY}`;
-const mainnetinfuraUrl = `https://sepolia.infura.io/v3/${process.env.INFURA_KEY}`;
+const mainnetinfuraUrl = `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`;
 const sepoliaprovider = new ethers.providers.JsonRpcProvider(sepoliainfuraUrl);
 const mainnetprovider = new ethers.providers.JsonRpcProvider(mainnetinfuraUrl);
 
@@ -35,7 +37,7 @@ const myBalance = await sepoliaprovider.getBalance(signer.address);
 
 console.log("rinkeby balance ", ethers.utils.formatEther(myBalance));
 
-const sanfordsouth = await mainnetprovider.resolveName("0x99eABb1B214Ac6Bb0fcFbcA4A426BcEBcc03C3DD");
+const sanfordsouth = await mainnetprovider.resolveName("sanfordsouth.eth");
 
 console.log("sending eth to", sanfordsouth)
 
